@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .profile-card {
+            background-color: rgba(52, 39, 19, 0.3);
+            backdrop-filter: blur(40px);
+            border-radius: 50px;
+            border: 3px solid rgba(232, 197, 69, 0.4);
+            max-width: 500px;
+            width: 100%;
+            padding: 16px;
+            margin-top: 48px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 80px; /* Added padding to accommodate space for profile image */
+        }
+        .profile-image-container {
+            position: absolute;
+            top: -21px; /* Adjusted to create more space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 120px;
+            overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .profile-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 10px rgba(232, 197, 69, 0.7));
+        }
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 95%;
+            margin-bottom: 16px;
+        }
+        .profile-info div {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            border: 1.5px solid rgba(232, 196, 84, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+        }
+        .profile-info svg {
+            color: #e8c545;
+        }
+        .profile-info p {
+            margin: 0;
+            color: #1f1e1e;
+            font-size: 14px;
+        }
+        .profile-details {
+            text-align: center;
+            color: #1f1e1e;
+            margin-top: 21px; /* Added margin to push the details down */
+        }
+        @keyframes Flash {
+        15% { color: #000000; text-shadow: 0 0 10px #000000; }
+        15% { color: #e8c545; text-shadow: 0 0 1px #e8c545; }
+      }
+      @keyframes FlickerH2 {
+            0% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
+            20% { color: #d6b335; text-shadow: 0 0 15px #e8c545; }
+            40% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
+            60% { color: #d6b335; text-shadow: 0 0 15px #e8c545; }
+            80% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
+            100% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
+            80% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
+            60% { color: #d6b335; text-shadow: 0 0 15px #e8c545; }
+            40% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
+            20% { color: #d6b335; text-shadow: 0 0 15px #e8c545; }
+        }
+        .profile-details h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 650;
+            letter-spacing: 1px;
+            animation: Flash 0.9s infinite;
+            color: transparent;
+        }
+        .profile-details h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 650;
+            letter-spacing: 1px;
+            animation: FlickerH2 1s infinite;
+            color: transparent;
+        }
+        .profile-details section {
+            font-size: 17.5px;
+            font-weight: bold;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .profile-details .line {
+            border-top: 2px solid rgba(232, 197, 69, 0.4);
+            margin: 20px 0; /* Space around the line */
+            width: 100%;
+        }
+        .profile-footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        .profile-footer a {
+            color: #1f1e1e;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: normal;
+        }
+        .profile-footer button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .profile-footer svg {
+            color: #e8c545;
+            transition: opacity 0.3s;
+        }
+        .profile-footer svg:hover {
+            opacity: 0.75;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-image-container">
+            <img src="https://media.discordapp.net/attachments/857965620287766555/1281344754172563486/Untitled-512.png?ex=66dcb24b&is=66db60cb&hm=b185bcee3ba22ba014796f0fef719ca5d55a44d33d93ea6afbbabb80378b6ef4&=&format=webp&quality=lossless" alt="Profile Image">
+        </div>
+        <div class="profile-details">
+            <h1 style="color:#000000;text-shadow:#000000 0px 0px 10px">BlackHat</h1>
+            <section style="color:#e8c545;text-shadow:#d6b335 0px 0px 10px">Dr.Plague Team</section>
+            <div class="line"></div>
+            <h2 style="color:#e8c545;text-shadow:#d6b335 0px 0px 10px">HotKey :</h2>
+            <section>Shift + .</section>
+        </div>
+    </div>
+</body>
+</html>
