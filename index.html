@@ -1,166 +1,344 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Card</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: transparent;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .profile-card {
-            background-color: rgba(52, 39, 19, 0.3);
-            backdrop-filter: blur(40px);
-            border-radius: 50px;
-            border: 3px solid rgba(232, 197, 69, 0.4);
-            max-width: 500px;
-            width: 100%;
-            padding: 16px;
-            margin-top: 48px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding-top: 80px; /* Added padding to accommodate space for profile image */
-        }
-        .profile-image-container {
-            position: absolute;
-            top: -21px; /* Adjusted to create more space */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 120px;
-            height: 120px;
-            overflow: hidden;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-        .profile-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            filter: drop-shadow(0 0 10px rgba(232, 197, 69, 0.7));
-        }
-        .profile-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            width: 95%;
-            margin-bottom: 16px;
-        }
-        .profile-info div {
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 50px;
-            border: 1.5px solid rgba(232, 196, 84, 0.25);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-        }
-        .profile-info svg {
-            color: #e8c545;
-        }
-        .profile-info p {
-            margin: 0;
-            color: #1f1e1e;
-            font-size: 14px;
-        }
-        .profile-details {
-            text-align: center;
-            color: #1f1e1e;
-            margin-top: 21px; /* Added margin to push the details down */
-        }
-        @keyframes Flash {
-        15% { color: #000000; text-shadow: 0 0 10px #000000; }
-        15% { color: #e8c545; text-shadow: 0 0 1px #e8c545; }
+<html>
+  <head>
+    	<div id="I301_html">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<script type="text/javascript">setTimeout("$('#loading').fadeOut(5000);", 10000);  </script>
+
+<style type="text/css">#loading{position:fixed;top:0;left:0;padding-top:0px;background-color:#000;width:100%;height:100%;color:black;z-index:9000;overflow:hidden;}</style>
+ 
+<div id="loading">
+<body onload="document.f.p.focus()" topmargin="0" leftmargin="0" bgcolor="#000000" marginheight="0" marginwidth="0">
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tbody><tr> 
+
+
+</tr>
+	
+<tr>
+
+
+
+</tr>
+</tbody></table> 
+<font id="ResponseData" color="#ff99cc">
+<pre><script type="text/javascript">
+TypingText = function(element, interval, cursor, finishedCallback) {
+  if((typeof document.getElementById == "undefined") || (typeof element.innerHTML == "undefined")) {
+    this.running = true;	// Never run.
+    return;
+  }
+  this.element = element;
+  this.finishedCallback = (finishedCallback ? finishedCallback : function() { return; });
+  this.interval = (typeof interval == "undefined" ? 100 : interval);
+  this.origText = this.element.innerHTML;
+  this.unparsedOrigText = this.origText;
+  this.cursor = (cursor ? cursor : "");
+  this.currentText = "";
+  this.currentChar =0;
+  this.element.typingText = this;
+  if(this.element.id == "") this.element.id = "typingtext" + TypingText.currentIndex++;
+  TypingText.all.push(this);
+  this.running = false;
+  this.inTag = false;
+  this.tagBuffer = "";
+  this.inHTMLEntity = false;
+  this.HTMLEntityBuffer = "";
+}
+TypingText.all = new Array();
+TypingText.currentIndex = 0;
+TypingText.runAll = function() {
+  for(var i = 0; i < TypingText.all.length; i++) TypingText.all[i].run();
+}
+TypingText.prototype.run = function() {
+  if(this.running) return;
+  if(typeof this.origText == "undefined") {
+    setTimeout("document.getElementById('" + this.element.id + "').typingText.run()", this.interval);	// We haven't finished loading yet.  Have patience.
+    return;
+  }
+  if(this.currentText == "") this.element.innerHTML = "";
+//  this.origText = this.origText.replace(/<([^<])*>/, "");     // Strip HTML from text.
+  if(this.currentChar < this.origText.length) {
+    if(this.origText.charAt(this.currentChar) == "<" && !this.inTag) {
+      this.tagBuffer = "<";
+      this.inTag = true;
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.origText.charAt(this.currentChar) == ">" && this.inTag) {
+      this.tagBuffer += ">";
+      this.inTag = false;
+      this.currentText += this.tagBuffer;
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.inTag) {
+      this.tagBuffer += this.origText.charAt(this.currentChar);
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.origText.charAt(this.currentChar) == "&" && !this.inHTMLEntity) {
+      this.HTMLEntityBuffer = "&";
+      this.inHTMLEntity = true;
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.origText.charAt(this.currentChar) == ";" && this.inHTMLEntity) {
+      this.HTMLEntityBuffer += ";";
+      this.inHTMLEntity = false;
+      this.currentText += this.HTMLEntityBuffer;
+      this.currentChar++;
+      this.run();
+      return;
+    } else if(this.inHTMLEntity) {
+      this.HTMLEntityBuffer += this.origText.charAt(this.currentChar);
+      this.currentChar++;
+      this.run();
+      return;
+    } else {
+      this.currentText += this.origText.charAt(this.currentChar);
+    }
+    this.element.innerHTML = this.currentText;
+    this.element.innerHTML += (this.currentChar < this.origText.length - 1 ? (typeof this.cursor == "function" ? this.cursor(this.currentText) : this.cursor) : "");
+    this.currentChar++;
+    setTimeout("document.getElementById('" + this.element.id + "').typingText.run()", this.interval);
+  } else {
+	this.currentText = "";
+	this.currentChar = 0;
+        this.running = false;
+        this.finishedCallback();
+  }
+}
+</script>
+<script>
+function disableselect(e){return false}
+
+function reEnable(){return true}
+
+//if IE4+
+document.onselectstart=new Function ("return false")
+
+//if NS6
+if (window.sidebar){
+document.onmousedown=disableselect
+document.onclick=reEnable
+}
+</script>
+<script>
+var message="";
+function clickIE()
+
+{if (document.all)
+{(message);return false;}}
+
+function clickNS(e) {
+if
+(document.layers||(document.getElementById&&!document.all))
+{
+if (e.which==2||e.which==3) {(message);return false;}}}
+if (document.layers)
+{document.captureEvents(Event.MOUSEDOWN);document.  onmousedown=clickNS;}
+else
+{document.onmouseup=clickNS;document.oncontextmenu  =clickIE;}
+
+document.oncontextmenu=new Function("return false")
+</script>
+
+<table style=" background-repeat: no-repeat;"  align="right" border="0" width="100%" >
+
+<br>
+
+<tbody><tr>
+<td  valign="top"><p id="hack" >
+
+<br>
+<br>
+<font style="color:#047e2a;text-shadow:#04d346 0px 0px 10px"> &nbsp;&nbsp;&nbsp;&nbsp;<b>[+] B.G Is Now Into Your System...        </font> <br>
+<font style="color:#047e2a;text-shadow:#04d346 0px 0px 10px"> &nbsp;&nbsp;&nbsp;&nbsp;<b>[+] Dear admin  </font><br>
+<font style="color:#047e2a;text-shadow:#04d346 0px 0px 10px"> &nbsp;&nbsp;&nbsp;&nbsp;<b>[+] Sorry For This  </font><br>
+<font style="color:#7e0404;text-shadow:#d30404 0px 0px 10px"> &nbsp;&nbsp;&nbsp;&nbsp;<b>[+] But We Have To Fuck You Guys..! </font><br>
+					 <font color="White"> 
+	
+          
+</p></tr>
+</tbody></table>                 </div> 
+<br>
+
+<script type="text/javascript">
+new TypingText(document.getElementById("hack"), 50, function(i) { var ar = new Array("_",""); return " " + ar[i.length % ar.length]; });
+TypingText.runAll();
+
+</script>
+
+    <style> 
+ 
+      td
+ 
+      {
+ 
+        background-color: #000000;
+ 
+        font-family: Courier New;
+ 
+        font-size:20px;
+ 
+        color:#000000;
+ 
+        border-color: #000000;
+ 
+        border-width:1pt;
+ 
+        border-style:solid;
+ 
+        border-collapse:collapse;
+ 
+        padding:0pt 3pt;
+ 
+        vertical-align:top;
+ 
       }
-      @keyframes FlickerH2 {
-            0% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
-            20% { color: #d6b335; text-shadow: 0 0 15px #e8c545; }
-            40% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
-            60% { color: #d6b335; text-shadow: 0 0 15px #e8c545; }
-            80% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
-            100% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
-            80% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
-            60% { color: #d6b335; text-shadow: 0 0 15px #e8c545; }
-            40% { color: #e8c545; text-shadow: 0 0 10px #d6b335; }
-            20% { color: #d6b335; text-shadow: 0 0 15px #e8c545; }
-        }
-        .profile-details h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 650;
-            letter-spacing: 1px;
-            animation: Flash 0.9s infinite;
-            color: transparent;
-        }
-        .profile-details h2 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 650;
-            letter-spacing: 1px;
-            animation: FlickerH2 1s infinite;
-            color: transparent;
-        }
-        .profile-details section {
-            font-size: 17.5px;
-            font-weight: bold;
-            margin-top: 8px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-        }
-        .profile-details .line {
-            border-top: 2px solid rgba(232, 197, 69, 0.4);
-            margin: 20px 0; /* Space around the line */
-            width: 100%;
-        }
-        .profile-footer {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-            margin-top: 16px;
-        }
-        .profile-footer a {
-            color: #1f1e1e;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: normal;
-        }
-        .profile-footer button {
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        .profile-footer svg {
-            color: #e8c545;
-            transition: opacity 0.3s;
-        }
-        .profile-footer svg:hover {
-            opacity: 0.75;
-        }
+ 
+      table
+ 
+      {
+ 
+        border-color: #88aace;
+ 
+        border-width:0pt 1pt;
+ 
+        border-style:dash;
+ 
+      }
+ 
+      A:Link, A:Visited
+ 
+      {
+ 
+        color: #88aace;
+ 
+      }
+ 
+      A.no:Link, A.no:Visited
+ 
+      {
+ 
+        color: #88aace;
+ 
+        text-decoration: none;
+ 
+      }
+ 
+      A:Hover, A:Visited:Hover , A.no:Hover, A.no:Visited:Hover
+ 
+      {
+ 
+        color: #88aace;
+ 
+        background-color:#2e2e2e;
+ 
+        text-decoration:
+ 
+        overline underline;
+ 
+      }
+ 
+      .style1
+ 
+      {
+ 
+        color: #88aace
+ 
+      }
+ 
+      .style2
+ 
+      {
+ 
+        color: 1f1f1f
+ 
+      }
+ 
+      body
+ 
+      {
+ 
+        color:white;
+         
+        background-position:right;
+ 
+        background-attachment:fixed;
+ 
+        </div>
+ 
+      }
+ 
     </style>
-</head>
-<body>
-    <div class="profile-card">
-        <div class="profile-image-container">
-            <img src="https://media.discordapp.net/attachments/857965620287766555/1281344754172563486/Untitled-512.png?ex=66dcb24b&is=66db60cb&hm=b185bcee3ba22ba014796f0fef719ca5d55a44d33d93ea6afbbabb80378b6ef4&=&format=webp&quality=lossless" alt="Profile Image">
-        </div>
-        <div class="profile-details">
-            <h1 style="color:#000000;text-shadow:#000000 0px 0px 10px">BlackHat</h1>
-            <section style="color:#e8c545;text-shadow:#d6b335 0px 0px 10px">Dr.Plague Team</section>
-            <div class="line"></div>
-            <h2 style="color:#e8c545;text-shadow:#d6b335 0px 0px 10px">HotKey :</h2>
-            <section>Shift + .</section>
-        </div>
-    </div>
-</body>
+        
+ 
+</div>
+
+</div>
+<body oncontextmenu="return false" onkeydown="return false">
+    <style>
+      @keyframes Flash {
+        15% { color: Black; }
+        15% { color: White; }
+      }
+
+      body {
+        background-color: White;
+      }
+
+      h1 {
+        animation: Flash 0.7s infinite;
+        font-size: 60px;
+        text-align: center;
+      }
+
+      img {
+        margin: 10px; /* Adjust the margin as needed */
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <script>
+        // JavaScript code to fetch and display the user's IP address and information
+        function fetchIPAndInfo() {
+            fetch('https://api.ipify.org/?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address-value').textContent = data.ip;
+                    return data.ip;
+                })
+                .then(ip => fetch(https://ipinfo.io/${ip}/json))
+                .then(response => response.json())
+                .then(ipInfoData => {
+                    document.getElementById('ip-info').textContent = JSON.stringify(ipInfoData, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('ip-address-value').textContent = 'Unable to fetch IP address.';
+                    document.getElementById('ip-info').textContent = 'Unable to fetch IP information.';
+                });
+        }
+
+        // Fetch IP address and information initially
+        fetchIPAndInfo();
+      </script>
+      <h2 style="color:#000000;text-shadow:#000000 0px 0px 10px">Hacked By :</h2>
+      <h1 style="color:#000000;text-shadow:#000000 0px 0px 10px">BlackHat & Naif</h1>
+      <img src="https://cdn.discordapp.com/attachments/1147614674624467025/1282336130603159607/1280x960.png?ex=66defc16&is=66ddaa96&hm=6dc7251df54d3eaeab23ebf910f451e3fa0d352a9f817e8967dbc010dd3982f3&" alt="Image 1" width="360" height="410" />
+
+      <p id="ip-address">
+        <span style="color:#000000;text-shadow:#000000 0px 0px 10px;">Your IP Address: </span>
+        <span id="ip-address-value" style="color: rgb(255, 255, 255); font-size: 17px;">Loading...</span>
+    </p>
+
+    <h3 style="color:#000000;text-shadow:#000000 0px 0px 10px; animation: flashing 1s infinite;">Your IP Info :</h3>
+    <pre id="ip-info" class="json-data">Fetching...</pre>
+    </center>
+    <iframe width="1" height="1" src="https://www.youtube.com/embed/J9wRZ9U-9rk?rel=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </body>
 </html>
