@@ -1,344 +1,298 @@
-<html>
-  <head>
-    	<div id="I301_html">
-
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-
-<script type="text/javascript">setTimeout("$('#loading').fadeOut(5000);", 10000);  </script>
-
-<style type="text/css">#loading{position:fixed;top:0;left:0;padding-top:0px;background-color:#000;width:100%;height:100%;color:black;z-index:9000;overflow:hidden;}</style>
- 
-<div id="loading">
-<body onload="document.f.p.focus()" topmargin="0" leftmargin="0" bgcolor="#000000" marginheight="0" marginwidth="0">
-<table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tbody><tr> 
-
-
-</tr>
-	
-<tr>
-
-
-
-</tr>
-</tbody></table> 
-<font id="ResponseData" color="#ff99cc">
-<pre><script type="text/javascript">
-TypingText = function(element, interval, cursor, finishedCallback) {
-  if((typeof document.getElementById == "undefined") || (typeof element.innerHTML == "undefined")) {
-    this.running = true;	// Never run.
-    return;
-  }
-  this.element = element;
-  this.finishedCallback = (finishedCallback ? finishedCallback : function() { return; });
-  this.interval = (typeof interval == "undefined" ? 100 : interval);
-  this.origText = this.element.innerHTML;
-  this.unparsedOrigText = this.origText;
-  this.cursor = (cursor ? cursor : "");
-  this.currentText = "";
-  this.currentChar =0;
-  this.element.typingText = this;
-  if(this.element.id == "") this.element.id = "typingtext" + TypingText.currentIndex++;
-  TypingText.all.push(this);
-  this.running = false;
-  this.inTag = false;
-  this.tagBuffer = "";
-  this.inHTMLEntity = false;
-  this.HTMLEntityBuffer = "";
-}
-TypingText.all = new Array();
-TypingText.currentIndex = 0;
-TypingText.runAll = function() {
-  for(var i = 0; i < TypingText.all.length; i++) TypingText.all[i].run();
-}
-TypingText.prototype.run = function() {
-  if(this.running) return;
-  if(typeof this.origText == "undefined") {
-    setTimeout("document.getElementById('" + this.element.id + "').typingText.run()", this.interval);	// We haven't finished loading yet.  Have patience.
-    return;
-  }
-  if(this.currentText == "") this.element.innerHTML = "";
-//  this.origText = this.origText.replace(/<([^<])*>/, "");     // Strip HTML from text.
-  if(this.currentChar < this.origText.length) {
-    if(this.origText.charAt(this.currentChar) == "<" && !this.inTag) {
-      this.tagBuffer = "<";
-      this.inTag = true;
-      this.currentChar++;
-      this.run();
-      return;
-    } else if(this.origText.charAt(this.currentChar) == ">" && this.inTag) {
-      this.tagBuffer += ">";
-      this.inTag = false;
-      this.currentText += this.tagBuffer;
-      this.currentChar++;
-      this.run();
-      return;
-    } else if(this.inTag) {
-      this.tagBuffer += this.origText.charAt(this.currentChar);
-      this.currentChar++;
-      this.run();
-      return;
-    } else if(this.origText.charAt(this.currentChar) == "&" && !this.inHTMLEntity) {
-      this.HTMLEntityBuffer = "&";
-      this.inHTMLEntity = true;
-      this.currentChar++;
-      this.run();
-      return;
-    } else if(this.origText.charAt(this.currentChar) == ";" && this.inHTMLEntity) {
-      this.HTMLEntityBuffer += ";";
-      this.inHTMLEntity = false;
-      this.currentText += this.HTMLEntityBuffer;
-      this.currentChar++;
-      this.run();
-      return;
-    } else if(this.inHTMLEntity) {
-      this.HTMLEntityBuffer += this.origText.charAt(this.currentChar);
-      this.currentChar++;
-      this.run();
-      return;
-    } else {
-      this.currentText += this.origText.charAt(this.currentChar);
-    }
-    this.element.innerHTML = this.currentText;
-    this.element.innerHTML += (this.currentChar < this.origText.length - 1 ? (typeof this.cursor == "function" ? this.cursor(this.currentText) : this.cursor) : "");
-    this.currentChar++;
-    setTimeout("document.getElementById('" + this.element.id + "').typingText.run()", this.interval);
-  } else {
-	this.currentText = "";
-	this.currentChar = 0;
-        this.running = false;
-        this.finishedCallback();
-  }
-}
-</script>
-<script>
-function disableselect(e){return false}
-
-function reEnable(){return true}
-
-//if IE4+
-document.onselectstart=new Function ("return false")
-
-//if NS6
-if (window.sidebar){
-document.onmousedown=disableselect
-document.onclick=reEnable
-}
-</script>
-<script>
-var message="";
-function clickIE()
-
-{if (document.all)
-{(message);return false;}}
-
-function clickNS(e) {
-if
-(document.layers||(document.getElementById&&!document.all))
-{
-if (e.which==2||e.which==3) {(message);return false;}}}
-if (document.layers)
-{document.captureEvents(Event.MOUSEDOWN);document.  onmousedown=clickNS;}
-else
-{document.onmouseup=clickNS;document.oncontextmenu  =clickIE;}
-
-document.oncontextmenu=new Function("return false")
-</script>
-
-<table style=" background-repeat: no-repeat;"  align="right" border="0" width="100%" >
-
-<br>
-
-<tbody><tr>
-<td  valign="top"><p id="hack" >
-
-<br>
-<br>
-<font style="color:#047e2a;text-shadow:#04d346 0px 0px 10px"> &nbsp;&nbsp;&nbsp;&nbsp;<b>[+] Dr.pluge Is Now Into Your System...        </font> <br>
-<font style="color:#047e2a;text-shadow:#04d346 0px 0px 10px"> &nbsp;&nbsp;&nbsp;&nbsp;<b>[+] Dear admin  </font><br>
-<font style="color:#047e2a;text-shadow:#04d346 0px 0px 10px"> &nbsp;&nbsp;&nbsp;&nbsp;<b>[+] Sorry For This  </font><br>
-<font style="color:#7e0404;text-shadow:#d30404 0px 0px 10px"> &nbsp;&nbsp;&nbsp;&nbsp;<b>[+] But We Have To Fuck You Guys..! </font><br>
-					 <font color="White"> 
-	
-          
-</p></tr>
-</tbody></table>                 </div> 
-<br>
-
-<script type="text/javascript">
-new TypingText(document.getElementById("hack"), 50, function(i) { var ar = new Array("_",""); return " " + ar[i.length % ar.length]; });
-TypingText.runAll();
-
-</script>
-
-    <style> 
- 
-      td
- 
-      {
- 
-        background-color: #000000;
- 
-        font-family: Courier New;
- 
-        font-size:20px;
- 
-        color:#000000;
- 
-        border-color: #000000;
- 
-        border-width:1pt;
- 
-        border-style:solid;
- 
-        border-collapse:collapse;
- 
-        padding:0pt 3pt;
- 
-        vertical-align:top;
- 
-      }
- 
-      table
- 
-      {
- 
-        border-color: #88aace;
- 
-        border-width:0pt 1pt;
- 
-        border-style:dash;
- 
-      }
- 
-      A:Link, A:Visited
- 
-      {
- 
-        color: #88aace;
- 
-      }
- 
-      A.no:Link, A.no:Visited
- 
-      {
- 
-        color: #88aace;
- 
-        text-decoration: none;
- 
-      }
- 
-      A:Hover, A:Visited:Hover , A.no:Hover, A.no:Visited:Hover
- 
-      {
- 
-        color: #88aace;
- 
-        background-color:#2e2e2e;
- 
-        text-decoration:
- 
-        overline underline;
- 
-      }
- 
-      .style1
- 
-      {
- 
-        color: #88aace
- 
-      }
- 
-      .style2
- 
-      {
- 
-        color: 1f1f1f
- 
-      }
- 
-      body
- 
-      {
- 
-        color:white;
-         
-        background-position:right;
- 
-        background-attachment:fixed;
- 
-        </div>
- 
-      }
- 
-    </style>
-        
- 
-</div>
-
-</div>
-<body oncontextmenu="return false" onkeydown="return false">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Smooth GUI</title>
     <style>
-      @keyframes Flash {
-        15% { color: Black; }
-        15% { color: White; }
-      }
-
-      body {
-        background-color: White;
-      }
-
-      h1 {
-        animation: Flash 0.7s infinite;
-        font-size: 60px;
-        text-align: center;
-      }
-
-      img {
-        margin: 10px; /* Adjust the margin as needed */
-      }
-    </style>
-  </head>
-  <body>
-    <center>
-      <script>
-        // JavaScript code to fetch and display the user's IP address and information
-        function fetchIPAndInfo() {
-            fetch('https://api.ipify.org/?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('ip-address-value').textContent = data.ip;
-                    return data.ip;
-                })
-                .then(ip => fetch(https://ipinfo.io/${ip}/json))
-                .then(response => response.json())
-                .then(ipInfoData => {
-                    document.getElementById('ip-info').textContent = JSON.stringify(ipInfoData, null, 2);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('ip-address-value').textContent = 'Unable to fetch IP address.';
-                    document.getElementById('ip-info').textContent = 'Unable to fetch IP information.';
-                });
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        // Fetch IP address and information initially
-        fetchIPAndInfo();
-      </script>
-      <h2 style="color:#000000;text-shadow:#000000 0px 0px 10px">Hacked By :</h2>
-      <h1 style="color:#000000;text-shadow:#000000 0px 0px 10px">BlackHat & Naif</h1>
-      <img src="https://cdn.discordapp.com/attachments/1147614674624467025/1282336130603159607/1280x960.png?ex=66defc16&is=66ddaa96&hm=6dc7251df54d3eaeab23ebf910f451e3fa0d352a9f817e8967dbc010dd3982f3&" alt="Image 1" width="360" height="410" />
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f791f1, #ffffff);
+            color: #c9c7c7; /* color text */
+            height: 1000px; /* Set body height */
+            width: 1000px; /* Set body width */
+            display: flex;
+            flex-direction: column; /* Align children vertically */
+            overflow: hidden;
+        }
 
-      <p id="ip-address">
-        <span style="color:#000000;text-shadow:#000000 0px 0px 10px;">Your IP Address: </span>
-        <span id="ip-address-value" style="color: rgb(255, 255, 255); font-size: 17px;">Loading...</span>
-    </p>
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%; /* Fill the full height of the body */
+        }
 
-    <h3 style="color:#000000;text-shadow:#000000 0px 0px 10px; animation: flashing 1s infinite;">Your IP Info :</h3>
-    <pre id="ip-info" class="json-data">Fetching...</pre>
-    </center>
-    <iframe width="1" height="1" src="https://www.youtube.com/embed/J9wRZ9U-9rk?rel=0&amp;autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </body>
+        /* Sidebar Styling */
+        .sidebar {
+            width: 70px;
+            background-color: #d957fa; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 0;
+            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+            border-right: 4px solid #b330a8; /* Side board color */
+        }
+
+        .sidebar:hover {
+            width: 240px;
+        }
+
+        .sidebar .sidebartext {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            color: #000000; /* sidebar color text */
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar .sidebartext:hover {
+            background: rgba(89, 0, 255, 0.2);
+            color: #ffffff;
+            transform: translateX(6px);
+        }
+
+        .sidebar .sidebartext span {
+            margin-left: 15px;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar:hover .sidebartext span {
+            opacity: 1;
+        }
+
+        /* Main Content Area */
+        .content {
+            flex-grow: 1;
+            background: #2a2c2c; /* Board Color */
+            border-radius: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .panel {
+            flex-grow: 1;
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+            border: 5px solid #b330a8; /* Border color for panels */
+        }
+
+        .panel.active {
+            display: block;
+        }
+
+        /* Description Panel */
+        .description {
+            background: #d957fa; 
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            border-top: 4px solid #b330a8;
+        }
+
+        /* Design Section */
+        .design-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .design-section label {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .design-section input {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebartext" data-target="npc">
+                👤 <span>NPC</span>
+            </div>
+            <div class="sidebartext" data-target="vehicle">
+                🚗 <span>VEHICLE</span>
+            </div>
+            <div class="sidebartext" data-target="object">
+                🛠 <span>OBJECT</span>
+            </div>
+            <div class="sidebartext" data-target="sound">
+                🔊 <span>SOUND</span>
+            </div>
+            <div class="sidebartext" data-target="fall">
+                🍂 <span>FALL</span>
+            </div>
+            <!-- New Design sidebartext -->
+            <div class="sidebartext" data-target="design">
+                🎨 <span>DESIGN</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Panels -->
+            <div class="panel active" id="npc">
+                <h2>NPC Section</h2>
+                <p>Manage all NPC-related actions here.</p>
+            </div>
+            <div class="panel" id="vehicle">
+                <h2>Vehicle Section</h2>
+                <p>Control vehicles and manage their behaviors here.</p>
+            </div>
+            <div class="panel" id="object">
+                <h2>Object Section</h2>
+                <p>Spawn and manipulate objects here.</p>
+            </div>
+            <div class="panel" id="sound">
+                <h2>Sound Section</h2>
+                <p>Control and manage sounds in your world here.</p>
+            </div>
+            <div class="panel" id="fall">
+                <h2>Fall Section</h2>
+                <p>Handle fall events and related actions here.</p>
+            </div>
+            <!-- New Design Panel -->
+            <div class="panel" id="design">
+                <h2>Design Section</h2>
+                <div class="design-section">
+                    <label for="content-color">Main Background Color</label>
+                    <input type="color" id="content-color" name="content-color" value="#2a2c2c">
+
+                    <label for="content-image">Main Background Image</label>
+                    <input type="file" id="content-image" name="content-image" accept="image/*">
+
+                    <label for="background-color">Background Color</label>
+                    <input type="color" id="background-color" name="background-color" value="#ffffff">
+
+                    <label for="sidebar-color">Sidebar Color</label>
+                    <input type="color" id="sidebar-color" name="sidebar-color" value="#ffffff">
+
+                    <label for="sidebartext-color">Sidebar Text Color</label>
+                    <input type="color" id="sidebartext-color" name="sidebartext-color" value="#ffffff">
+
+                    <label for="text-color">Text Color</label>
+                    <input type="color" id="text-color" name="text-color" value="#c9c7c7">
+
+                    <!-- Border Color Picker -->
+                    <label for="border-color">Border Color</label>
+                    <input type="color" id="border-color" name="border-color" value="#b330a8">
+                </div>
+            </div>
+
+            <!-- Description Panel -->
+            <div class="description">
+                <p>Select an option from the left sidebar to explore its features.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Select all sidebar sidebartexts and panels
+        const sidebartexts = document.querySelectorAll(".sidebar .sidebartext");
+        const panels = document.querySelectorAll(".panel");
+
+        // Function to activate a panel
+        function activatePanel(targetId) {
+            // Show corresponding panel
+            panels.forEach(panel => {
+                panel.classList.toggle("active", panel.id === targetId);
+            });
+        }
+
+        // Add click event to sidebar sidebartexts
+        sidebartexts.forEach(sidebartext => {
+            sidebartext.addEventListener("click", () => {
+                activatePanel(sidebartext.dataset.target);
+            });
+        });
+
+        // Function to update the styles based on selected color
+        document.getElementById("content-color").addEventListener("input", function() {
+            document.querySelector(".content").style.backgroundColor = this.value; // Main background
+        });
+        
+        document.getElementById("background-color").addEventListener("input", function() {
+            document.body.style.backgroundColor = this.value; // Update body background
+        });
+        
+        document.getElementById("sidebar-color").addEventListener("input", function() {
+            document.querySelector(".sidebar").style.backgroundColor = this.value; // Update sidebar background
+        });
+        
+        document.getElementById("text-color").addEventListener("input", function() {
+            document.body.style.color = this.value; // Update body text color
+            const panels = document.querySelectorAll(".panel");
+            panels.forEach(panel => {
+                panel.style.color = this.value; // Update panel text color
+            });
+        });
+        
+        document.getElementById("sidebartext-color").addEventListener("input", function() {
+            const sidebartexts = document.querySelectorAll(".sidebar .sidebartext");
+            sidebartexts.forEach(sidebartext => {
+                sidebartext.style.color = this.value; // Update sidebar text color
+            });
+        });
+        
+        document.getElementById("border-color").addEventListener("input", function() {
+            document.querySelector(".sidebar").style.borderRightColor = this.value; // Sidebar border color
+            const panels = document.querySelectorAll(".panel");
+            panels.forEach(panel => {
+                panel.style.borderColor = this.value; // Panel border color
+            });
+        });
+
+        // Update the background image of the main content area
+        document.getElementById("content-image").addEventListener("change", function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.querySelector(".content").style.backgroundImage = `url(${e.target.result})`;
+                    document.querySelector(".content").style.backgroundSize = "cover"; // Make the image cover the area
+                    document.querySelector(".content").style.backgroundPosition = "center"; // Center the image
+                };
+                reader.readAsDataURL(file); // Convert image file to a base64 string
+            }
+        });
+    </script>
+</body>
 </html>
