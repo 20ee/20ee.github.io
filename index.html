@@ -1,298 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Smooth GUI</title>
-    <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(120deg, #f791f1, #ffffff);
-            color: #c9c7c7; /* color text */
-            height: 1000px; /* Set body height */
-            width: 1000px; /* Set body width */
-            display: flex;
-            flex-direction: column; /* Align children vertically */
-            overflow: hidden;
-        }
-
-        .container {
-            display: flex;
-            width: 100%;
-            height: 100%; /* Fill the full height of the body */
-        }
-
-        /* Sidebar Styling */
-        .sidebar {
-            width: 70px;
-            background-color: #d957fa; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px 0;
-            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-            position: relative;
-            border-right: 4px solid #b330a8; /* Side board color */
-        }
-
-        .sidebar:hover {
-            width: 240px;
-        }
-
-        .sidebar .sidebartext {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            color: #000000; /* sidebar color text */
-            font-size: 18px;
-            margin: 20px 0;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .sidebar .sidebartext:hover {
-            background: rgba(89, 0, 255, 0.2);
-            color: #ffffff;
-            transform: translateX(6px);
-        }
-
-        .sidebar .sidebartext span {
-            margin-left: 15px;
-            opacity: 0;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .sidebar:hover .sidebartext span {
-            opacity: 1;
-        }
-
-        /* Main Content Area */
-        .content {
-            flex-grow: 1;
-            background: #2a2c2c; /* Board Color */
-            border-radius: 10px;
-            margin: 10px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .panel {
-            flex-grow: 1;
-            display: none;
-            padding: 20px;
-            animation: fadeIn 0.5s ease-in-out;
-            border: 5px solid #b330a8; /* Border color for panels */
-        }
-
-        .panel.active {
-            display: block;
-        }
-
-        /* Description Panel */
-        .description {
-            background: #d957fa; 
-            color: #ffffff;
-            padding: 15px;
-            text-align: center;
-            border-top: 4px solid #b330a8;
-        }
-
-        /* Design Section */
-        .design-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .design-section label {
-            font-size: 16px;
-            color: #fff;
-        }
-
-        .design-section input {
-            padding: 10px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(1);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebartext" data-target="npc">
-                👤 <span>NPC</span>
-            </div>
-            <div class="sidebartext" data-target="vehicle">
-                🚗 <span>VEHICLE</span>
-            </div>
-            <div class="sidebartext" data-target="object">
-                🛠 <span>OBJECT</span>
-            </div>
-            <div class="sidebartext" data-target="sound">
-                🔊 <span>SOUND</span>
-            </div>
-            <div class="sidebartext" data-target="fall">
-                🍂 <span>FALL</span>
-            </div>
-            <!-- New Design sidebartext -->
-            <div class="sidebartext" data-target="design">
-                🎨 <span>DESIGN</span>
-            </div>
+    <header>
+        <a href="#" class="logo">Alex</a>
+
+        <nav>
+            <a href="#" class="active"> Home</a>
+            <a href="#" >Services</a>
+            <a href="#" >Skills</a>
+            <a href="#" >Education</a>
+            <a href="#" >Experience</a>
+            <a href="#" >Contact</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-img">
+            <img src="main.jpg" alt="">
         </div>
-
-        <!-- Main Content -->
-        <div class="content">
-            <!-- Panels -->
-            <div class="panel active" id="npc">
-                <h2>NPC Section</h2>
-                <p>Manage all NPC-related actions here.</p>
+        <div class="home-content">
+            <h1>Hi, It's <span>Alex</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus labore dolores esse. Odit similique doloribus tenetur doloremque, sunt commodi in ipsa repudiandae debitis deleniti blanditiis quibusdam quaerat neque asperiores ea.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <div class="panel" id="vehicle">
-                <h2>Vehicle Section</h2>
-                <p>Control vehicles and manage their behaviors here.</p>
-            </div>
-            <div class="panel" id="object">
-                <h2>Object Section</h2>
-                <p>Spawn and manipulate objects here.</p>
-            </div>
-            <div class="panel" id="sound">
-                <h2>Sound Section</h2>
-                <p>Control and manage sounds in your world here.</p>
-            </div>
-            <div class="panel" id="fall">
-                <h2>Fall Section</h2>
-                <p>Handle fall events and related actions here.</p>
-            </div>
-            <!-- New Design Panel -->
-            <div class="panel" id="design">
-                <h2>Design Section</h2>
-                <div class="design-section">
-                    <label for="content-color">Main Background Color</label>
-                    <input type="color" id="content-color" name="content-color" value="#2a2c2c">
-
-                    <label for="content-image">Main Background Image</label>
-                    <input type="file" id="content-image" name="content-image" accept="image/*">
-
-                    <label for="background-color">Background Color</label>
-                    <input type="color" id="background-color" name="background-color" value="#ffffff">
-
-                    <label for="sidebar-color">Sidebar Color</label>
-                    <input type="color" id="sidebar-color" name="sidebar-color" value="#ffffff">
-
-                    <label for="sidebartext-color">Sidebar Text Color</label>
-                    <input type="color" id="sidebartext-color" name="sidebartext-color" value="#ffffff">
-
-                    <label for="text-color">Text Color</label>
-                    <input type="color" id="text-color" name="text-color" value="#c9c7c7">
-
-                    <!-- Border Color Picker -->
-                    <label for="border-color">Border Color</label>
-                    <input type="color" id="border-color" name="border-color" value="#b330a8">
-                </div>
-            </div>
-
-            <!-- Description Panel -->
-            <div class="description">
-                <p>Select an option from the left sidebar to explore its features.</p>
-            </div>
+            <a href="#" class="btn">Hire me</a>
         </div>
-    </div>
-
-    <script>
-        // Select all sidebar sidebartexts and panels
-        const sidebartexts = document.querySelectorAll(".sidebar .sidebartext");
-        const panels = document.querySelectorAll(".panel");
-
-        // Function to activate a panel
-        function activatePanel(targetId) {
-            // Show corresponding panel
-            panels.forEach(panel => {
-                panel.classList.toggle("active", panel.id === targetId);
-            });
-        }
-
-        // Add click event to sidebar sidebartexts
-        sidebartexts.forEach(sidebartext => {
-            sidebartext.addEventListener("click", () => {
-                activatePanel(sidebartext.dataset.target);
-            });
-        });
-
-        // Function to update the styles based on selected color
-        document.getElementById("content-color").addEventListener("input", function() {
-            document.querySelector(".content").style.backgroundColor = this.value; // Main background
-        });
-        
-        document.getElementById("background-color").addEventListener("input", function() {
-            document.body.style.backgroundColor = this.value; // Update body background
-        });
-        
-        document.getElementById("sidebar-color").addEventListener("input", function() {
-            document.querySelector(".sidebar").style.backgroundColor = this.value; // Update sidebar background
-        });
-        
-        document.getElementById("text-color").addEventListener("input", function() {
-            document.body.style.color = this.value; // Update body text color
-            const panels = document.querySelectorAll(".panel");
-            panels.forEach(panel => {
-                panel.style.color = this.value; // Update panel text color
-            });
-        });
-        
-        document.getElementById("sidebartext-color").addEventListener("input", function() {
-            const sidebartexts = document.querySelectorAll(".sidebar .sidebartext");
-            sidebartexts.forEach(sidebartext => {
-                sidebartext.style.color = this.value; // Update sidebar text color
-            });
-        });
-        
-        document.getElementById("border-color").addEventListener("input", function() {
-            document.querySelector(".sidebar").style.borderRightColor = this.value; // Sidebar border color
-            const panels = document.querySelectorAll(".panel");
-            panels.forEach(panel => {
-                panel.style.borderColor = this.value; // Panel border color
-            });
-        });
-
-        // Update the background image of the main content area
-        document.getElementById("content-image").addEventListener("change", function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.querySelector(".content").style.backgroundImage = `url(${e.target.result})`;
-                    document.querySelector(".content").style.backgroundSize = "cover"; // Make the image cover the area
-                    document.querySelector(".content").style.backgroundPosition = "center"; // Center the image
-                };
-                reader.readAsDataURL(file); // Convert image file to a base64 string
-            }
-        });
-    </script>
+    </section>
 </body>
 </html>
